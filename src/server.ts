@@ -1,7 +1,10 @@
 import app from './app'
 import dotenv from 'dotenv';
+import { initializeDatabase } from './db/schema';
 
 dotenv.config();
+
+initializeDatabase();
 
 const port = process.env.PORT || 3000;
 
