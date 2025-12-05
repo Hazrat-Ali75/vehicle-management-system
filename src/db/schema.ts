@@ -8,7 +8,7 @@ export async function initializeDatabase(){
             name VARCHAR(50) NOT NULL,
             email VARCHAR(100) UNIQUE NOT NULL,
             password VARCHAR(255) CHECK (LENGTH(password) >= 6) NOT NULL,
-            phone INTEGER NOT NULL,
+            phone VARCHAR(20) NOT NULL,
             role VARCHAR(20) CHECK (role IN ('admin', 'customer')) NOT NULL
         )`);
 
