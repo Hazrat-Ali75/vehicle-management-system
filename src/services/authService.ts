@@ -43,7 +43,7 @@ export async function loginUser(email: string, password: string){
       const token =  jwt.sign(
          { id : isExistsUser.rows[0].id, role: isExistsUser.rows[0].role},
          JWT_SECRET as string,
-         { expiresIn: '10min'}
+         { expiresIn: '2h'}
       )
       return { token, user: isExistsUser.rows[0]}
 }
