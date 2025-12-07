@@ -32,6 +32,21 @@ A backend system built with **Node.js**, **TypeScript**, **Express.js**, and **P
 📄 package.json
 📄 tsconfig.json
 
+
+### Folder Description
+
+- **📂 controllers/**: Handles request logic for authentication, users, bookings, and vehicles.  
+- **📂 db/**: Database connection setup and schema definitions.  
+- **📂 middlewares/**: Custom middleware functions.  
+- **📂 routes/**: API endpoints for authentication, bookings, users, and vehicles.  
+- **📂 services/**: Business logic or utility functions.  
+- **📄 app.ts**: Main application setup.  
+- **📄 server.ts**: Server entry point.  
+- **📄 .env**: Environment variables.  
+- **📄 package.json**: Project dependencies and scripts.  
+- **📄 tsconfig.json**: TypeScript configuration.  
+
+
 ## ⭐ Features
 
 ### 🔐 **Authentication**
