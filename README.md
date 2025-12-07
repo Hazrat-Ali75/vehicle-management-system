@@ -7,31 +7,6 @@ A backend system built with **Node.js**, **TypeScript**, **Express.js**, and **P
 ## 🚀 Live URL
 (https://vehicle-management-system-alpha.vercel.app/)
 
-#Project Structer 
-
-📂 src
-├── 📂 controllers
-│ ├── 📄 authControllers.ts
-│ ├── 📄 bookingControllers.ts
-│ ├── 📄 userController.ts
-│ └── 📄 vehicleControllers.ts
-├── 📂 db
-│ ├── 📄 dbConnect.ts
-│ └── 📄 schema.ts
-├── 📂 middlewares
-│ └── 📄 middleware.ts
-├── 📂 routes
-│ ├── 📄 authRoutes.ts
-│ ├── 📄 bookingRoutes.ts
-│ ├── 📄 userRoutes.ts
-│ └── 📄 vehicleRoutes.ts
-├── 📂 services
-├── 📄 app.ts
-└── 📄 server.ts
-📄 .env
-📄 package.json
-📄 tsconfig.json
-
 
 ### Folder Description
 
