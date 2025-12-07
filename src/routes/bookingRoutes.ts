@@ -1,6 +1,6 @@
 import Router from "express";
 import * as bookingControllers from '../controllers/bookingControllers';
-import { isAuthenticated, requireRole } from "../middlewares/middleware";
+import { isAuthenticated } from "../middlewares/middleware";
 
 const router = Router();
 
