@@ -9,32 +9,28 @@ A backend system built with **Node.js**, **TypeScript**, **Express.js**, and **P
 
 #Project Structer 
 
-src
-├── controllers
-│ ├── authControllers.ts
-│ ├── bookingControllers.ts
-│ ├── userController.ts
-│ └── vehicleControllers.ts
-│
-├── db
-│ ├── dbConnect.ts
-│ └── schema.ts
-│
-├── middlewares
-│ └── middleware.ts
-│
-├── routes
-│ ├── authRoutes.ts
-│ ├── bookingRoutes.ts
-│ ├── userRoutes.ts
-│ └── vehicleRoutes.ts
-│
-├── services
-├── app.ts
-└── server.ts
-.env
-package.json
-tsconfig.json
+📂 src
+├── 📂 controllers
+│ ├── 📄 authControllers.ts
+│ ├── 📄 bookingControllers.ts
+│ ├── 📄 userController.ts
+│ └── 📄 vehicleControllers.ts
+├── 📂 db
+│ ├── 📄 dbConnect.ts
+│ └── 📄 schema.ts
+├── 📂 middlewares
+│ └── 📄 middleware.ts
+├── 📂 routes
+│ ├── 📄 authRoutes.ts
+│ ├── 📄 bookingRoutes.ts
+│ ├── 📄 userRoutes.ts
+│ └── 📄 vehicleRoutes.ts
+├── 📂 services
+├── 📄 app.ts
+└── 📄 server.ts
+📄 .env
+📄 package.json
+📄 tsconfig.json
 
 ## ⭐ Features
 
@@ -145,6 +141,8 @@ http://localhost:5000
 Method	Endpoint	Access	Description
 POST	/api/v1/auth/signup	Public	Register new user account
 POST	/api/v1/auth/signin	Public	Login and receive JWT token
+
+
 🚗 Vehicle Routes
 Method	Endpoint	Access	Description
 POST	/api/v1/vehicles	Admin only	Add new vehicle
@@ -152,11 +150,15 @@ GET	/api/v1/vehicles	Public	View all vehicles
 GET	/api/v1/vehicles/:vehicleId	Public	View vehicle details
 PUT	/api/v1/vehicles/:vehicleId	Admin only	Update vehicle info
 DELETE	/api/v1/vehicles/:vehicleId	Admin only	Delete vehicle (no active bookings allowed)
+
+
 👤 User Routes
 Method	Endpoint	Access	Description
 GET	/api/v1/users	Admin only	View all users
 PUT	/api/v1/users/:userId	Admin or Owner	Update user details
 DELETE	/api/v1/users/:userId	Admin only	Delete user (no active bookings allowed)
+
+
 📅 Booking Routes
 Method	Endpoint	Access	Description
 POST	/api/v1/bookings	Customer/Admin	Create booking, validate availability, calculate price
