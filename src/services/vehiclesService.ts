@@ -32,15 +32,17 @@ export async function getVehicleById(vehicleId: number){
     return result.rows[0];
 }
 
-export async function updateVehicle(id: number, {vehicle_name, type, registration_number, daily_rent_price, availability_status}: VehicleData){
-    const result = await pool.query(
+export async function updateVehicle(id: number, role: string| undefined, {vehicle_name, type, registration_number, daily_rent_price, availability_status}: VehicleData){
+    if (role === 'admin'){
+        const result = await pool.query(
         `UPDATE vehicles SET vehicle_name = $1, type = $2, registration_number = $3, daily_rent_price = $4, availability_status = $5 WHERE id = $6 RETURNING *`,
         [vehicle_name, type, registration_number, daily_rent_price, availability_status, id]
     );
-    return result.rows[0];
+     return result.rows[0];
+    }
 }
 
-export async function deleteVehicle(id: number){
+export async function deleteVehicle(id: number, role?: string){
     const isActiveBooking = await pool.query(
         `SELECT * FROM bookings WHERE vehicle_id = $1 AND booking_status = 'active'`,
         [id]
@@ -48,6 +50,7 @@ export async function deleteVehicle(id: number){
     if (isActiveBooking.rows.length > 0){
         throw new Error('Cannot delete vehicle with active bookings');
     }
-
+    if (role === 'admin'){
     await pool.query(`DELETE FROM vehicles WHERE id = $1`, [id]);
+    }
 }

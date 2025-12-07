@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import * as vehicleService from '../services/vehiclesService';
+import { AuthRequest } from "../middlewares/middleware";
 
 export async function createVehicle(req: Request, res: Response){
     const { vehicle_name, type, registration_number, daily_rent_price, availability_status } = req.body;
@@ -58,12 +59,13 @@ export async function getVehicleById(req: Request, res: Response){
     }
 }
 
-export async function updateVehicle(req: Request, res: Response){
+export async function updateVehicle(req: AuthRequest, res: Response){
     const id = req.params.vehicleId;
+    const role = req.user?.role;
     const { vehicle_name, type, registration_number, daily_rent_price, availability_status } = req.body;
 
     try {
-        const updatedVehicle = await vehicleService.updateVehicle(Number(id), { vehicle_name, type, registration_number, daily_rent_price, availability_status });
+        const updatedVehicle = await vehicleService.updateVehicle(Number(id), role, { vehicle_name, type, registration_number, daily_rent_price, availability_status });
         res.status(200).json({
             success: true,
             message: 'Vehicle updated successfully',
@@ -79,10 +81,11 @@ export async function updateVehicle(req: Request, res: Response){
     }
 }
 
-export async function deleteVehicle(req: Request, res: Response){
+export async function deleteVehicle(req: AuthRequest, res: Response){
     const id = req.params.id;
+    const role = req.user?.role;
     try {
-        await vehicleService.deleteVehicle(Number(id));
+        await vehicleService.deleteVehicle(Number(id), role);
         res.status(200).json({
             success: true,
             message: 'Vehicle deleted successfully'
